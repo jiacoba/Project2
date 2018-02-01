@@ -12,26 +12,27 @@ import java.util.*;
 public class NeubeckerIacobanGradebook
 {
     
-    double[][] scores = new double[5][4];
+    
+    Float[][] scores = new Float[5][4];
     String[] names = new String [5]; 
     
     
-    public static void displayData(String [] mynames,double [][]myscores)
+    public static void displayData(String [] mynames,Float [][]myscores)
     {
     
     }
     
-    public static void computeAverages(String [] str, double [][] stuscores)
+    public static void computeAverages(String [] str, Float [][] stuscores)
     {
         
     }
     
-    public static void determineLetterGrade(char [] letter, double [][]stuscores)
+    public static void determineLetterGrade(char [] letter, Float [][]stuscores)
     {
     
     }
     
-    public static void displayData2(String [] names, double [][] scores, char [] letters)
+    public static void displayData2(String [] names, Float [][] scores, char [] letters)
     {
     
     }
@@ -41,49 +42,90 @@ public class NeubeckerIacobanGradebook
     
     }
     
-    public static void main (String [] args)
+    public static void main (String [] args) throws IOException
     {
-        
-        // The name of the file to open.
         String fileName = "project2IN.txt";
-
-        // This will reference one line at a time
-        String line = null;
-        String text = "";
+        Scanner keyboard = new Scanner(new File(fileName));
+        
+        String token1 ="";
+        
+        
+        List<String> temps = new ArrayList<String>();
+        
+        while(keyboard.hasNext()){
+            
+            token1 = keyboard.next();
+            temps.add(token1);
+            
+        }
+        
+        String[] tempsArray = temps.toArray(new String[0]);
+        
+        for (String s : tempsArray)
+        {
+            System.out.println(s);
+            
+        }
+        
+        
+        
+       List<Float> ntemps = new ArrayList<Float>();
+        
+        while(keyboard.hasNext())
+        {
+            
+            Float token2 = keyboard.nextFloat();
+            ntemps.add(token2);
+            
+        }
+        keyboard.close();
+        
+        Float[] numTemp = ntemps.toArray(new Float[0]);
+        
+        
+         for (Float x : numTemp)
+         
+                {
+                    System.out.println(x);
+   
+                }
+        
+         /*
         try {
-            // FileReader reads text files in the default encoding.
-            FileReader fileReader = 
-                new FileReader(fileName);
-
-            // Always wrap FileReader in BufferedReader.
-            BufferedReader bufferedReader = 
-                new BufferedReader(fileReader);
-
-            while((line = bufferedReader.readLine()) != null) {
-                System.out.println(line);
-                text = line;
-            }   
-
-            // Always close files.
-            bufferedReader.close();         
-        }
-        catch(FileNotFoundException ex) {
-            System.out.println(
-                "Unable to open file '" + 
-                fileName + "'");                
-        }
-        catch(IOException ex) {
-            System.out.println(
-                "Error reading file '" 
-                + fileName + "'");                  
-            // Or we could just do this: 
-            // ex.printStackTrace();
-           
+            keyboard = new Scanner(new FileInputStream(fileName));
+                
+            boolean tokenFound = false;
+                
+            while(keyboard.hasNextLine())
+                {
+                    String line = keyboard.nextLine().trim();
+                    
+                    if (line.equals("BGSTART"))
+                    {
+                        tokenFound = true;
+                    } else if (line.equals("BGEND"))
+                    {
+                        System.out.println(line);
+                    }
+                    
+                    if (tokenFound == true)
+                    {
+                        System.out.println(line);
+                    }
+                    
+                }
         }
         
-        System.out.println(text);
-
+            catch (Exception e) 
+            {
+                System.out.println("File not found.");
+            }
         
+        
+        
+        
+        
+       
         // The name of the file to open.
         String fileNameOut = "project2OUT.txt";
 
@@ -114,7 +156,7 @@ public class NeubeckerIacobanGradebook
             // Or we could just do this:
             // ex.printStackTrace();
         }
-        
+        */
         
         
         
