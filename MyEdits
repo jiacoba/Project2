@@ -1,0 +1,234 @@
+import java.io.*;
+import java.util.*;
+
+/**
+ * Write a description of class Gradebook here.
+ * 
+ * Tyler Neubecker
+ * Jason Iacoban
+ * 
+ * 1/30/18
+ */
+public class NeubeckerIacobanGradebook
+{
+
+
+    public static void displayData(String [] mynames,Float [][]myscores)
+    {
+        Float[][] scores = new Float[5][4];
+        String[] names = new String [5]; 
+    }
+    
+    public static void computeAverages(String [] str, Float [][] stuscores)
+    {
+        double i;
+        double marks[][] = new double [5][4];
+        double row = 0, col = 0;
+        double avg = 0;
+        double sum = 0;
+        String st[] = new String [5];
+        
+        for( i=0;i<3;i++)
+        
+        {
+        
+        //convert the marks(in String format) to double
+        
+        marks[row][i] = Double.parseDouble(st[i+2]);
+        
+        //add the marks to total
+        
+        sum += marks[row][i];
+        
+        }
+        
+        //calculate the average
+        
+        avg = (double)sum / (i);
+        
+        //assign the avg to last column of the array
+        
+        marks[row][i]= avg;
+        
+        //increment the row
+      
+    }
+    
+    public static void determineLetterGrade(char [] letter, Float [][]stuscores)
+    {
+        double row = 0, col = 0;
+        int j = 0;
+        double avg = 0;
+        
+        char [] grade = new char[5];
+      
+         if(avg > 90)
+        
+        grade[j]='A';
+        
+        //if avg>80 then grade is B
+        
+        else if(avg>80)
+        
+        grade[j]='B';
+        
+        //if avg>70 then grade is C
+        
+        else if(avg>70)
+        
+        grade[j]='C';
+        
+        //if avg>60 then grade is D
+        
+        else if(avg>60)
+        
+        grade[j]='D';
+        
+        //if avg>50 then grade is E
+        
+        else if(avg>50)
+        
+        grade[j]='E';
+        
+        //else grade is F
+        
+        else
+        
+        grade[j]='F';
+        
+        //increment the row
+        
+        row++;
+        
+        //increment the j
+        
+        j++;
+    }
+    
+    public static void displayData2(String [] names, Float [][] scores, char [] letters)
+    {
+    
+    }
+    
+    public static void line (int numdash)
+    {
+    
+    }
+    
+    public static void main (String [] args) throws IOException
+    {
+        String fileName = "project2IN.txt";
+        Scanner keyboard = new Scanner(new File(fileName));
+        
+        String token1 ="";
+        
+        
+        List<String> temps = new ArrayList<String>();
+        
+        while(keyboard.hasNext()){
+            
+            token1 = keyboard.next();
+            temps.add(token1);
+            
+        }
+        
+        String[] tempsArray = temps.toArray(new String[0]);
+        
+        for (String s : tempsArray)
+        {
+            System.out.println(s);
+            
+        }
+        
+        
+        
+       List<Float> ntemps = new ArrayList<Float>();
+        
+        while(keyboard.hasNext())
+        {
+            
+            Float token2 = keyboard.nextFloat();
+            ntemps.add(token2);
+            
+        }
+        keyboard.close();
+        
+        Float[] numTemp = ntemps.toArray(new Float[0]);
+        
+        
+         for (Float x : numTemp)
+         
+                {
+                    System.out.println(x);
+   
+                }
+        
+         /*
+        try {
+            keyboard = new Scanner(new FileInputStream(fileName));
+                
+            boolean tokenFound = false;
+                
+            while(keyboard.hasNextLine())
+                {
+                    String line = keyboard.nextLine().trim();
+                    
+                    if (line.equals("BGSTART"))
+                    {
+                        tokenFound = true;
+                    } else if (line.equals("BGEND"))
+                    {
+                        System.out.println(line);
+                    }
+                    
+                    if (tokenFound == true)
+                    {
+                        System.out.println(line);
+                    }
+                    
+                }
+        }
+        
+            catch (Exception e) 
+            {
+                System.out.println("File not found.");
+            }
+        
+        
+        
+        
+        
+       
+        // The name of the file to open.
+        String fileNameOut = "project2OUT.txt";
+        try {
+            // Assume default encoding.
+            FileWriter fileWriter =
+                new FileWriter(fileNameOut);
+            // Always wrap FileWriter in BufferedWriter.
+            BufferedWriter bufferedWriter =
+                new BufferedWriter(fileWriter);
+            // Note that write() does not automatically
+            // append a newline character.
+            bufferedWriter.write("Hello there,");
+            bufferedWriter.write(" here is some text.");
+            bufferedWriter.newLine();
+            bufferedWriter.write("We are writing");
+            bufferedWriter.write(" the text to the file.");
+            // Always close files.
+            bufferedWriter.close();
+        }
+        catch(IOException ex) {
+            System.out.println(
+                "Error writing to file '"
+                + fileName + "'");
+            // Or we could just do this:
+            // ex.printStackTrace();
+        }
+        */
+        
+        
+        
+        
+    }
+}
